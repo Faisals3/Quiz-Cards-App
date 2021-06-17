@@ -1,0 +1,12 @@
+{
+  "name": "quizz-cards-app",
+  "displayName": "quizz-cards-app",
+  "expo": {
+    "name": "quizz-cards-app",
+    "slug": "quizz-cards-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
