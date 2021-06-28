@@ -1,4 +1,3 @@
-import questions from '../would-you-rather/src/reducers/questions';
 import { ADD_CARD, ADD_DECK, RECEIVE_DECKS, REMOVE_DECK } from './action'
 
 function decks(state = {}, action) {

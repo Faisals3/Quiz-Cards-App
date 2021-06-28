@@ -22,7 +22,8 @@ function DeckPage({ route, navigation,dispatch }) {
         <TouchableOpacity style={styles.btn}
           onPress={() => {
             navigation.navigate('Start Quiz', {
-              deckQuizz
+              deckQuizz,
+              decks
             });
           }}
         >
