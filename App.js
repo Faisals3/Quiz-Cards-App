@@ -78,7 +78,9 @@ function MyStack() {
 
 class App extends Component {
 
-        
+        componentDidMount() {
+          setLocalNotification()
+        }
  
   render() {
 

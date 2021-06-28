@@ -2,6 +2,10 @@ import React from 'react'
 import {View , Text , TouchableOpacity , StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import {removeDeck} from '../action'
+import {
+  clearLocalNotification,
+  setLocalNotification
+} from '../helpers'
 
 
 
@@ -25,6 +29,11 @@ function DeckPage({ route, navigation,dispatch }) {
               deckQuizz,
               decks
             });
+
+            clearLocalNotification()
+              .then(setLocalNotification)
+
+
           }}
         >
           <Text style={{ color: 'white' }}>

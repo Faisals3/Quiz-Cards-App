@@ -26,3 +26,11 @@ npm start
 
 * Since this project is React Native and iOS and/or Android Simulator will need to be configured on the computer
 
+
+## Platforms
+
+| Platform | Tested | Notes | 
+|:---------|:-------|:------|
+| iOS | :x: | | 
+| Android | :white_check_mark: | | 
+

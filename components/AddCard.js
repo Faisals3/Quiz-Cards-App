@@ -39,9 +39,9 @@ function AddCard ({route,navigation,dispatch}) {
         <Text style={styles.normalText}>{Deck.title} Quizz</Text>
        
         
-        <View style={{ padding: 10 }}>
+        <View style={{ padding: 30}}>
           <TextInput
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 30 , height:20 }}
             placeholder="Enter Question"
             onChangeText={question => setQuestion(question)}
             defaultValue={question}
@@ -50,9 +50,9 @@ function AddCard ({route,navigation,dispatch}) {
   
         </View>
   
-        <View style={{ padding: 10 }}>
+        <View style={{ padding: 30 }}>
           <TextInput
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 10, height:20 }}
             placeholder="Enter Answer"
             onChangeText={answer => setAnswer(answer)}
             defaultValue={answer}

@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     deckContainer: {
         flex: 0.1,
         padding: 20,
+        paddingBottom : 60,
         borderWidth: 5,
         borderRadius: 30,
         width: 360,

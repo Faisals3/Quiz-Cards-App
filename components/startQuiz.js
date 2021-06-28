@@ -19,14 +19,18 @@ export default function startQuiz({ route , navigation}) {
     else 
     setface('question')
   }
+
+  
   
   function handleQuestion(answer) {
     if(answer==='correct') {
       setScore(score+1)
       setQuestionsTracker(QuestionsTracker+1)
+      setface('question')
     }
     else {
       setQuestionsTracker(QuestionsTracker+1)
+      setface('question')
     }
   }
 

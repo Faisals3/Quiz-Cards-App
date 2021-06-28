@@ -1,4 +1,5 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
+
 import * as Permissions from 'expo-permissions'
 import * as Notifications from 'expo-notifications'
 
@@ -37,7 +38,7 @@ export function clearLocalNotification () {
   
                 let tomorrow = new Date()
                 tomorrow.setDate(tomorrow.getDate() + 1)
-                tomorrow.setHours(20)
+                tomorrow.setHours(12)
                 tomorrow.setMinutes(0)
   
                 Notifications.scheduleLocalNotificationAsync(
