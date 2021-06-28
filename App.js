@@ -8,10 +8,18 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { createStackNavigator } from '@react-navigation/stack';
 import DeckList from './components/DeckList'
 import AddDeck from './components/AddDeck'
+import DeckPage from './components/DeckPage'
+import startQuiz from './components/startQuiz'
+import AddCard from './components/AddCard'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import reducer from './reducer'
 import { receiveDecks } from './action';
+import {setLocalNotification} from './helpers'
+
+
+
+
 
 
 
@@ -57,11 +65,11 @@ function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Quizz App!" component={MyTabs} />
-      <Stack.Screen name="Decks List" component={DeckList} />
+      <Stack.Screen name="Decks List" component={DeckList}/>
       <Stack.Screen name="Add Deck" component={AddDeck} />
-      {/* <Stack.Screen name="Deck Page" component={DeckPage} />
+      <Stack.Screen name="Deck Page" component={DeckPage} />
       <Stack.Screen name="Start Quiz" component={startQuiz} />
-      <Stack.Screen name="Add Card" component={AddCard} /> */}
+      <Stack.Screen name="Add Card" component={AddCard} />
 
     </Stack.Navigator>
   );
@@ -70,7 +78,10 @@ function MyStack() {
 
 class App extends Component {
 
-
+        componentDidMount() {
+            setLocalNotification()
+        }
+ 
   render() {
 
   

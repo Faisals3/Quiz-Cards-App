@@ -4,7 +4,7 @@ import {receiveDecks} from '../action'
 import {connect} from 'react-redux'
 
 
-class DecksList extends Component  {
+class DeckList extends Component  {
 
     
  initialDecks = {
@@ -31,7 +31,7 @@ class DecksList extends Component  {
         ]
       },
       EmptyTest: {
-        title: 'EmptyTest!',
+        title: 'EmptyTest',
         questions: [
          
         ]
@@ -50,15 +50,37 @@ const decksArray = Object.values(decks)
 
 
 return (
+    <View>
+    {decksArray[0] !== undefined
 
-    <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', marginTop: 40 }}>
+  ?  <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', marginTop: 40 }}>
+      {decksArray.map((deck) => (
+        <TouchableOpacity
+          style={styles.deckContainer}
+          onPress={() => {
+            this.props.navigation.navigate('Deck Page', {
+              deck,
+              decks
+            });
 
-        {/* <TouchableOpacity style={styles.deckContainer}>    */}
-                <Text>{JSON.stringify(decks['JavaScript'])}</Text>
-                <Text>{}</Text>
-        {/* </TouchableOpacity> */}
+          }}
+          key={deck.title}
+        >
+          <View >
+            <Text>{deck.title}</Text>
+            <Text>{deck.questions.length} Cards</Text>
+          </View>
+        </TouchableOpacity>
 
+      ))}
     </View>
+
+    : <View>
+        <Text>You Didn't create any decks yet</Text>    
+    </View>
+}
+</View>
+
 );
 }
 }
@@ -122,4 +144,4 @@ function mapStateToProps (decks) {
     }
 }
 
-export default connect(mapStateToProps)(DecksList)
+export default connect(mapStateToProps)(DeckList)

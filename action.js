@@ -9,3 +9,28 @@ export function receiveDecks (decks) {
         decks,
     }
 }
+
+export function addCard (card) {
+    return {
+        type:ADD_CARD,
+        card
+    }
+
+
+}
+
+export function removeDeck (deck) {
+    return {
+        type:REMOVE_DECK,
+        deck
+    }
+
+
+}
+
+export function addDeck (deck) {
+    return {
+        type:ADD_DECK,
+        deck
+    }
+}

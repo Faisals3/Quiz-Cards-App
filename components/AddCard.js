@@ -1,55 +1,83 @@
-import {View,Text,TextInput,TouchableOpacity,StyleSheet} from 'react-native'
-import React, { useState } from 'react';
+import React , {useState,Component} from 'react' 
+import {View , Text , TextInput , StyleSheet , TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
-import { addDeck } from '../action';
+import {addCard} from '../action'
 
 
 
-
-function AddDeck({ navigation,dispatch }) {
-    const [deckTitle, setDeckTitle] = useState('');
-
-    function handleAddDeck() {
-
-        const deck = {
-            title : deckTitle,
-            questions : []
-           
-        }
-
-        dispatch(addDeck(deck))
-        setDeckTitle('')
-        navigation.navigate('Deck Page', {
-            deck
-        })
-
+function AddCard ({route,navigation,dispatch}) {
+    let Deck = route.params.deckQuizz
+   
+    const [question, setQuestion] = useState('');
+    const [answer, setAnswer] = useState('');
+  
+    function handleAddCard () {
         
-    }
+     const card = {
+         title:Deck.title,
+         card : {
+         question:question,
+         answer:answer
+         }
+     }
 
+     dispatch(addCard(card))
+
+     navigation.navigate('Quizz App!')
+     
+    }
+  
+  
     return (
+
+        <View>
+        {Deck !== undefined
+    
+      ?
+
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 40, alignSelf: 'center' }}>What is the title of your new deck?</Text>
+        <Text style={styles.normalText}>{Deck.title} Quizz</Text>
+       
+        
         <View style={{ padding: 10 }}>
           <TextInput
             style={{ marginTop: 30 }}
-            placeholder="Enter Deck title"
-            onChangeText={deckTitle => setDeckTitle(deckTitle)}
-            defaultValue={deckTitle}
-            value={deckTitle}
+            placeholder="Enter Question"
+            onChangeText={question => setQuestion(question)}
+            defaultValue={question}
+          />
+  
+  
+        </View>
+  
+        <View style={{ padding: 10 }}>
+          <TextInput
+            style={{ marginTop: 30 }}
+            placeholder="Enter Answer"
+            onChangeText={answer => setAnswer(answer)}
+            defaultValue={answer}
           />
   
   
         </View>
   
         <TouchableOpacity style={styles.btn}
-        onPress = {() => handleAddDeck()}
+        onPress ={() => handleAddCard()}
         >
           <Text style={{ color: 'white' }}>
             Submit
         </Text>
         </TouchableOpacity>
+        
+  
       </View>
-    );
+
+: <View>
+<Text>Error handling the data</Text>    
+</View>
+}
+</View>
+    )
   }
 
   const styles = StyleSheet.create({
@@ -105,4 +133,6 @@ function AddDeck({ navigation,dispatch }) {
     }
   })
 
-  export default connect()(AddDeck)
+ 
+
+  export default connect()(AddCard)
